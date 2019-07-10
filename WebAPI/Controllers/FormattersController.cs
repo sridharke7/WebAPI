@@ -20,5 +20,18 @@ namespace WebAPI.Controllers
 
             return formats.AsEnumerable<string>();
         }
+
+        public string Get(int id)
+        {
+            string val = null;
+            for (int i=0; i<GlobalConfiguration.Configuration.Formatters.Count; i++)
+            {
+                if(id == i-1)
+                {
+                    val = GlobalConfiguration.Configuration.Formatters[i].ToString();
+                }
+            }
+            return val;
+        }
     }
 }
